@@ -3,7 +3,7 @@ package stringsTutorial;
 public class AllAboutStrings {
 
 	public static void main(String[] args) {
-		String basicGreeting = "Hello World, string class is meant for single thread app bc it is not thread safe";
+		String basicGreeting = "Hello World, string class is meant for app that only make reference calls and not modication";
 		
 		basicGreeting.toUpperCase();//cannot modify the existing string
 		//basicGreeting.charAt(0) = "T"
@@ -22,11 +22,9 @@ public class AllAboutStrings {
 		
 		//we can modify using these two classes
 		
-		s1.reverse().append(s2);
+		s1.reverse();
 		
-		System.out.println(s2.toString());
-		System.out.print(s1.toString());
-		System.out.print(s1);
+		System.out.println(s1.charAt(0));
 	
 		//stringbuilder is faster but not thread safe
 		//stringbuffer is slower but is thread safe
