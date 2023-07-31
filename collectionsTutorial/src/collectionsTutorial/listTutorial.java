@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 import java.util.Vector;
 
 
@@ -50,20 +51,21 @@ public class listTutorial {
 
 	public static void main(String[] args) {
 		//collections interface has a list interface that has various class implementation
-		//arraylist, linkedlist, vector
+		//arraylist, linkedlist, vector - have dup values
 		
 		List<Integer> numList = new ArrayList<>();
 		List<Integer> numLinkedList = new LinkedList<>();
-		List<Cat> catList = new ArrayList<>();
-		List<Cat> catLinkedList = new LinkedList<>();
 		List<String> stringVector = new Vector<>();
+		List<Integer> intStack = new Stack<>();
 		
-		for ( int i = 1; i < 10; i++) {
+		
+		//insertion
+		
+		for ( int i = 0; i < 10; i++) {
 			numList.add(i);
 			numLinkedList.add(i);
-			catList.add(new Cat(i));
-			catLinkedList.add(new Cat(i));
 			stringVector.add(String.valueOf(i));
+			intStack.add(i);
 		}
 	
 		//indexing element by index
@@ -75,9 +77,12 @@ public class listTutorial {
 		
 		// Modifying set() or remove()
 		
-		numList.set(0, 2000000);
+		numList.set(0, 8952200);
+		numList.remove(9);
 	
-//		
+		
+		//calling elements get()
+
 		//iterating 
 		
 		Iterator iterator = numList.iterator();
