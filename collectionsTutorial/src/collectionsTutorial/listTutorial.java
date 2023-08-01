@@ -57,6 +57,11 @@ public class listTutorial {
 		//collections interface has a list interface that has various class implementation
 		//arraylist, linkedlist, vector - have dup values
 		
+		//C - add()
+		//R - get()
+		//U - remove(), set()
+		//D - remove()
+		
 		//for 1 thread app use arraylist/linkedlist
 		//for using only set/ get use arraylist
 		//for modifyiing and deleting use linkedliist ( insertion order)

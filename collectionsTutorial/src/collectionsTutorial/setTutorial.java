@@ -17,6 +17,11 @@ public class setTutorial {
 		//LinkedHashSet - insertion ordered, slow, not thread safe
 		//treeset - natural order, not thread safe
 		
+		//C - add()
+		//R - get()
+		//U - remove(), add()
+		//D - remove()
+		
 		System.gc();
 		
 		//create/post
