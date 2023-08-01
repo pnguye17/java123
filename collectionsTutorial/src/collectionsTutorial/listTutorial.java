@@ -1,9 +1,13 @@
 package collectionsTutorial;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Stack;
 import java.util.Vector;
 
@@ -53,10 +57,20 @@ public class listTutorial {
 		//collections interface has a list interface that has various class implementation
 		//arraylist, linkedlist, vector - have dup values
 		
+		//for 1 thread app use arraylist/linkedlist
+		//for using only set/ get use arraylist
+		//for modifyiing and deleting use linkedliist ( insertion order)
+		
 		List<Integer> numList = new ArrayList<>();
-		List<Integer> numLinkedList = new LinkedList<>();
+		
+		//linked list and vector are the same except Vector is thread safe
+		List<Integer> numLinkedList = new LinkedList<>(); 
 		List<String> stringVector = new Vector<>();
+		
+		//LIFO, thread safe use deque instead
 		List<Integer> intStack = new Stack<>();
+		
+		Deque<Integer> intDeque = new ArrayDeque<>();
 		
 		
 		//insertion
@@ -68,8 +82,8 @@ public class listTutorial {
 			intStack.add(i);
 		}
 	
-		//indexing element by index
-//		
+		//indexing element by index get()
+
 //		System.out.println(numList.get(1));
 //		System.out.println(numLinkedList.get(1));
 //		System.out.println(stringVector.get(0));
@@ -79,17 +93,46 @@ public class listTutorial {
 		
 		numList.set(0, 8952200);
 		numList.remove(9);
-	
-		
-		//calling elements get()
 
-		//iterating 
+		//iterating best to use listIterator instead of iterator
+		//Iterator interface can be applied to all collection classes 
+		//but it can traverse only in single direction that is Forward direction.
+		//listiterator goes front and back
 		
 		Iterator iterator = numList.iterator();
+		ListIterator<Integer> i = numList.listIterator();
 		
-		while ( iterator.hasNext() ) {
-			System.out.println(iterator.next());
+		
+		for (Integer num: numList) {
+			System.out.println(num);
 		}
+		
+		while ( i.hasNext()) {
+			System.out.println(i.next());
+		}
+		
+//		while ( i.hasPrevious()) {
+//			System.out.println(i.hasPrevious());
+//		}
+		
+		
+		// not thread safe : arraylist, linkedlist
+		//wrapped  it with sync or concurrent methods
+		
+		List<Integer> threadSafelist = Collections.synchronizedList(numList);
+		
+		//if u do the above , performance will go down
+		//should do 
+		
+		synchronized (numList) {
+			while (i.hasNext()){
+				//print
+			}
+		}
+		
+		
+		
+		
 		
 		
 		
@@ -131,10 +174,6 @@ public class listTutorial {
 			list.add(i);
 		}
 		
-		
-	}
-	
-	static void add100Strings() {
 		
 	}
 	
